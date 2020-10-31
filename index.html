@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Web demo video</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/config.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<script>
+				$(document).ready(function(){
+					$(".cnt").mouseover(function () {
+						$(".cnt").css("transform", "rotate(20deg)");
+					});
+				  $(".cnt").mouseout(function(){
+					$(".cnt").css("background-color", "lightgray");
+				  });
+				});
+	</script>
+	<script>
+document.getElementById("myBtn").onclick = function() {myFunction()};
+function myFunction() {
+						document.getElementById("myDropdown").classList.toggle("show");
+}
+	</script>
+<style>
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #d9534f;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
+
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+
+		.show {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- HEADER cua trang web-->
+	
+	<header>
+		<img src="img/logo1.png" alt="Ảnh index">
+	</header>
+	
+	<!-- Thanh dieu huong navigation -->
+	<nav>
+		<ul>
+		  <li><a href="">Trang chủ</a></li>
+		  <li><a href="">Cắt frame</a></li>
+		  <li><a href="">Ghép video</a></li>
+		  <li><a href="">Chỉnh sửa video</a></li>
+		  <li><a href="">Thay đổi định dạng video</a></li>
+		</ul>
+	</nav>
+	
+	<!-- Main page -->
+	<div class="container">
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Chọn video</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="container1">
+					</br></br>
+					<h1 style="text-align= center;">
+						Chuyển đổi định dạng
+					</h1>
+					<form action="/convert" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<input type="file" name="file" />
+						</div>
+						<div class="form-group">
+							<label for="to">Định dạng mới:</label>
+							<select class="form-control" name="to">
+								<option>mp4</option>
+								<option>flv</option>
+								<option>avi</option>
+								<option>mov</option>
+							</select>
+						</div>
+						<br />
+						<div class="form-group">
+							<button class="btn btn-danger btn-block" data-rel="back" data-transition="flow" >
+								Chuyển định dạng
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalcut">Chọn video để cắt</button>
+
+		<!-- Modal -->
+		<div   class="modal fade" id="myModalcut" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="container1">
+					</br></br>
+					<h1 style="text-align = center;">
+						Cắt frame từ video
+					</h1>
+					<form action="/cutframe" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<input type="file" name="file" />
+						</div>
+						<div class="form-group">
+							<label for="frame">Số frame/s:</label>
+							<input name="frame"></input>
+						</div>
+						<br />
+						<div class="form-group">
+							<div class="dropdown">
+
+
+								<button onclick="myFunction()" class="btn btn-danger btn-block" id="myBtn">
+									Cắt Frame
+								</button>
+								<div id="myDropdown" class="dropdown-content">
+									<a href="http://localhost:3333/" target="_blank" data-rel="back" data-transition="flow">Xem ảnh</a>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		
+
+		<div class="index_blocks">
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/cut.png" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Cắt video</div>
+					<div class="p">
+						Ứng dụng web này rất tiện lợi khi bạn cần cắt một tập tin video nhỏ. Ứng dụng này không cần cài đặt, và làm việc ngay trong trình duyệt của bạn.
+					</div>
+				</div>
+			</div>
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/icon.png" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Ghép video</div>
+					<div class="p">
+						Cắt cúp cho phép bạn ghép khung video đến diện tích mong muốn, hoặc thay đổi tỷ lệ khung hình.
+					</div>
+				</div>
+			</div>
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/edit.jpg" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Chỉnh sửa video</div>
+					<div class="p">
+						Ứng dụng có thể cắt các tập tin video ngay trong cửa sổ trình duyệt của bạn. Hỗ trợ các tập tin lên đến 500Mb, và chúng tôi sắp nâng giới hạn này.
+					</div>
+				</div>
+			</div>
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/speed.png" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Tăng-giảm tốc độ video</div>
+					<div class="p">
+						Ứng dụng có thể cho bạn dễ dàng tăng giảm tốc độ video tùy ý muốn.
+					</div>
+				</div>
+			</div>
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/sub.png" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Thêm phụ đề cho video</div>
+					<div class="p">
+						Ứng dụng giúp bạn tự thêm phụ đề vào video theo ý bạn.
+					</div>
+				</div>
+			</div>
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/mute.png" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Tắt âm thanh video </div>
+					<div class="p">
+						Ứng dụng này hỗ trợ hầu hết video, tắt toàn bộ âm thanh của video đầu vào.
+					</div>
+				</div>
+			</div>
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/lock2.png" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Đảm bảo bảo mật</div>
+					<div class="p">
+						Các tập tin của bạn sẽ tự động được xóa khỏi máy chủ của chúng tôi một vài giờ sau khi bạn đã hoàn tất xử lý chúng. Không ai có quyền truy cập chúng trừ bạn.
+					</div>
+				</div>
+			</div>
+			<div class="block vcutter">
+				<div class="cnt">
+					<div class="img">
+						<img src="img/free.jpg" alt="Cắt video" class="img_content">
+					</div>
+					<div class="h">Miễn phí sử dụng</div>
+					<div class="p">
+						Ứng dụng của chúng tôi sẽ luôn được miễn phí. Bạn không cần phải mua giấy phép hoặc trả thêm tiền cho các tính năng bổ sung hay việc tải về.
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Script -->
+		<script>
+			function openForm() {
+                document.getElementById("myModal").style.display = "block";
+			}
+
+			function closeForm() {
+                document.getElementById("myModal").style.display = "none";
+			}
+		</script>
+</body>
+
+</html>
